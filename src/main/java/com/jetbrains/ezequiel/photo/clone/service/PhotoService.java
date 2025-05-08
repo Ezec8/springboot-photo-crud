@@ -1,6 +1,6 @@
-package com.jetbrains.ezequiel.photo.clone;
+package com.jetbrains.ezequiel.photo.clone.service;
 
-import org.springframework.stereotype.Component;
+import com.jetbrains.ezequiel.photo.clone.model.Photo;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -29,8 +29,9 @@ public class PhotoService {
         return db.remove(id);
     }
 
-    public Photo save(String fileName, byte[] data) {
+    public Photo save(String fileName, String contentType, byte[] data) {
         Photo photo = new Photo();
+        photo.setContentType(contentType);
         photo.setId(UUID.randomUUID().toString());
         photo.setFileName(fileName);
         photo.setData(data);

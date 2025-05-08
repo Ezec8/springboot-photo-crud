@@ -1,7 +1,8 @@
-package com.jetbrains.ezequiel.photo.clone;
+package com.jetbrains.ezequiel.photo.clone.web;
 
+import com.jetbrains.ezequiel.photo.clone.model.Photo;
+import com.jetbrains.ezequiel.photo.clone.service.PhotoService;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
@@ -45,6 +46,6 @@ public class PhotoController {
 
     @PostMapping("/photo")
     public Photo create(@RequestPart("data") MultipartFile file) throws IOException {
-        return photoService.save(file.getOriginalFilename(), file.getBytes());
+        return photoService.save(file.getOriginalFilename(), file.getContentType(), file.getBytes());
     }
 }

@@ -1,4 +1,4 @@
-package com.jetbrains.ezequiel.photo.clone;
+package com.jetbrains.ezequiel.photo.clone.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
@@ -14,10 +14,22 @@ public class Photo {
     @JsonIgnore
     private byte[] data;
 
+
+    private String contentType;
+
     // raw data\
 
 
     public Photo() {
+    }
+
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
     public byte[] getData() {
